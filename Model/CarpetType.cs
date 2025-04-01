@@ -2,6 +2,8 @@
 {
     public class CarpetType
     {
+        public int Id { get; set; }
+
         public string Name { get; set; }
 
         public float PriceSQM { get; set; }

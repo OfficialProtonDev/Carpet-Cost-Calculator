@@ -11,6 +11,8 @@ namespace CarpetCostCalculator.Model
             new CarpetType { Name = "Luxurious", PriceSQM = 300, InstallationCostSQM = 20, UnderlayCostSQM = 20 }
         ];
 
+        public CarpetType SelectedCarpet { get; set; }
+
         [BindProperty]
         public float RoomLength { get; set; }
 
@@ -18,7 +20,7 @@ namespace CarpetCostCalculator.Model
         public float RoomWidth { get; set; }
 
         [BindProperty]
-        public CarpetType SelectedCarpet { get; set; }
+        public String SelectedCarpetName { get; set; }
 
         [BindProperty]
         public bool UseInstallation { get; set; }
