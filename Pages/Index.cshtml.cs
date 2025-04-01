@@ -12,7 +12,7 @@ namespace CarpetCostCalculator.Pages
 
         public CarpetOperations CarpetCalculator { get; set; } = new CarpetOperations();
 
-        public List<float> ResultCosts { get; set; } = [0, 0, 0, 0];
+        public List<float> ResultCosts { get; set; } = [0, 0, 0, 0, 0];
 
         public void OnPost()
         {
