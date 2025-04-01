@@ -12,43 +12,41 @@
 		<form method="post">
 			<div class="form-group">
 				<div class="row">
-					<label asp-for="@Model.CarpetInfo.RoomWidth" class="col-lg-2"></label>
-					<input type="number" asp-for="@Model.CarpetInfo.RoomWidth" class="col-lg-2" />
+					<label asp-for="@Model.CarpetInfo.SelectedCarpetName" class="col-auto"></label>
+					<select asp-for="@Model.CarpetInfo.SelectedCarpetName" asp-items="@(new SelectList(Model.CarpetInfo.CarpetTypes, "Name", "Name"))" class="col-auto"></select>
 				</div>
 
 				<div class="row">
-					<label asp-for="@Model.CarpetInfo.RoomLength" class="col-lg-2"></label>
-					<input type="number" asp-for="@Model.CarpetInfo.RoomLength" class="col-lg-2" />
+					<label asp-for="@Model.CarpetInfo.RoomWidth" class="col-auto"></label>
+					<input type="number" asp-for="@Model.CarpetInfo.RoomWidth" class="col-auto" />
+
+					<label asp-for="@Model.CarpetInfo.RoomLength" class="col-auto"></label>
+					<input type="number" asp-for="@Model.CarpetInfo.RoomLength" class="col-auto" />
 				</div>
 
 				<div class="row">
-					<label asp-for="@Model.CarpetInfo.SelectedCarpetName" class="col-lg-2"></label>
-					<select asp-for="@Model.CarpetInfo.SelectedCarpetName" asp-items="@(new SelectList(Model.CarpetInfo.CarpetTypes, "Name", "Name"))" class="col-lg-2"></select>
+					<label asp-for="@Model.CarpetInfo.UseInstallation" class="col-auto"></label>
+					<input type="checkbox" asp-for="@Model.CarpetInfo.UseInstallation" class="col-auto" />
 				</div>
 
 				<div class="row">
-					<label asp-for="@Model.CarpetInfo.UseInstallation" class="col-lg-2"></label>
-					<input type="checkbox" asp-for="@Model.CarpetInfo.UseInstallation" class="col-lg-2" />
+					<label asp-for="@Model.CarpetInfo.UseUnderlay" class="col-auto"></label>
+					<input type="checkbox" asp-for="@Model.CarpetInfo.UseUnderlay" class="col-auto" />
 				</div>
 
 				<div class="row">
-					<label asp-for="@Model.CarpetInfo.UseUnderlay" class="col-lg-2"></label>
-					<input type="checkbox" asp-for="@Model.CarpetInfo.UseUnderlay" class="col-lg-2" />
-				</div>
-
-				<div class="row">
-					<input type="submit" value="Submit" asp-action="Index" />
+					<input type="submit" value="Calculate Carpeting Costs" asp-action="Index" />
 				</div>
 			</div>
 		</form>
 	</div>
 	<div class="card-footer">
 		<div class="row">
-			<label>Result:</label>
-			<p>Carpet Cost: $@Model.ResultCosts[0]</p>
-			<p>Installation Cost: $@Model.ResultCosts[1]</p>
-			<p>Underlay Cost: $@Model.ResultCosts[2]</p>
-			<p>Total Cost: $@Model.ResultCosts[3]</p>
+			<p>Room Size: @(Model.ResultCosts[0])m²</p>
+			<p>Carpet Cost: <i>$@Model.ResultCosts[1]</i></p>
+			<p>Installation Cost: <i>$@Model.ResultCosts[2]</i></p>
+			<p>Underlay Cost: <i>$@Model.ResultCosts[3]</i></p>
+			<p><b>Total Cost:</b> $@Model.ResultCosts[4]</p>
 		</div>
 	</div>
 </div>

@@ -12,8 +12,8 @@ namespace CarpetCostCalculator.Operations
             float _underlayCost = carpetInfo.UseUnderlay ? carpetInfo.SelectedCarpet.UnderlayCostSQM * _sqm : 0;
             float _carpetCost = carpetInfo.SelectedCarpet.PriceSQM * _sqm;
 
-            List<float> _costs = new List<float> { _carpetCost, _installationCost, _underlayCost };
-            _costs.Add(_costs.Sum());
+            List<float> _costs = new List<float> { _sqm, _carpetCost, _installationCost, _underlayCost };
+            _costs.Add(_costs.Skip(1).Take(3).Sum());
 
             return _costs;
         }
