@@ -8,7 +8,7 @@ namespace CarpetCostCalculator.Operations
         {
             float _sqm = carpetInfo.RoomLength * carpetInfo.RoomWidth;
 
-            float _installationCost = carpetInfo.UseInstallation ? carpetInfo.SelectedCarpet.InstallationCostSQM * _sqm : 0;
+            float _installationCost = carpetInfo.UseInstallation ? carpetInfo.UseUnderlay ? carpetInfo.SelectedCarpet.InstallationCostSQM * _sqm * 2: carpetInfo.SelectedCarpet.InstallationCostSQM * _sqm : 0;
             float _underlayCost = carpetInfo.UseUnderlay ? carpetInfo.SelectedCarpet.UnderlayCostSQM * _sqm : 0;
             float _carpetCost = carpetInfo.SelectedCarpet.PriceSQM * _sqm;
 
